@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-md-5 mx-auto">
                 <form action="" method="post" id="form">
-                    <div id="result"></div>
+                    <!-- <div id="result"></div> -->
                     <div class="form-group">
                         <label for="">label</label>
                         <input type="text" id='title' class="form-control">
@@ -46,7 +46,7 @@
         let submit = $("#submit").val();
 
         $.ajax({
-            url:"insert.php",
+            url:"model.php",
             type:"post",
             data: {
                 title:title,
@@ -54,7 +54,8 @@
                 submit:submit
             },
             success: function(data) {
-               $("#result").html(data);
+            //    $("#result").html(data);
+            console.log(data);
             }
 
         });
