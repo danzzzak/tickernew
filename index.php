@@ -55,6 +55,8 @@
             },
             success: function(data) {
                $("#result").html(data);
+            console.log('dsd');
+            console.log(data)
             }
 
         });
