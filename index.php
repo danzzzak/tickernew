@@ -33,6 +33,15 @@
                 </form>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-md-12 mt-1">
+                <div id="fetch">  </div>
+
+            </div>
+
+        </div>
+
     </div>
     <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -62,7 +71,22 @@
         });
 
         $("#form")[0].reset();
-      })
+      });
+
+
+      // fetch
+
+      function fetch() {
+          $.ajax({
+              url:"fetch.php",
+              type:"post",
+              success: function(data){
+                  $("#fetch").html(data);
+              }
+
+          })
+      }
+      fetch();
   </script>
 </body>
 </html>

@@ -34,12 +34,32 @@
                             </div>
                             ";
                         }
-                        else {
-                            echo "fail";
-                        }
+                    }
+                    else {
+                        echo "
+                        <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                        Pustie stroki
+                        <button type='button' class='close' data-dismiss='alert' aria-label='Close'> 
+                        <span aria-hidden='true'>&times </span>
+                        </button>
+                        </div>
+                        ";
                     }
                 }
             } 
+        }
+
+
+        public function fetch() {
+            $data = null;
+
+            $stmt=$this->conn->prepare("SELECT * FROM records");
+
+            $stmt->execute();
+
+            $data = $stmt->fetchAll();
+
+            return $data;
         }
 
     }
