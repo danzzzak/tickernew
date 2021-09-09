@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
@@ -44,11 +45,25 @@
         </div>
 
     </div>
+
+    <!-- MODAL -->
+    <!-- Модальное окно -->
+<div class="modal">
+  <div class="modal__content">
+    <button class="modal__close-button"id="modal__close-button">123123</button>
+    <!-- Контент модального окна -->
+    <div id="read_data"></div>
+  </div>
+</div>
+
     <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
   crossorigin="anonymous"></script>
+  <script src="model.js" ></script>
   <script>
+      // submit
+
       $(document).on('click', "#submit", function(e){
         e.preventDefault();
         let title = $("#title").val();
@@ -114,6 +129,28 @@
 
         
     });
+
+    // read
+
+    $(document).on('click', '#read', function(e){
+
+        let read_id = $(this).attr("value");
+
+        $.ajax({
+            url: "read.php",
+            type: "post",
+            data: {
+                read_id:read_id
+            },
+            success: function(data) {
+                console.log(data);
+                $("#read_data").html(data);
+            }
+        });
+
+    });
+
+
   </script>
 </body>
 </html>

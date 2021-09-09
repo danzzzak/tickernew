@@ -88,6 +88,13 @@
             }
         } 
 
+        public function read($read_id) {
+            $data=null;
+            $stmt = $this->conn->prepare("SELECT * FROM records WHERE id = '$read_id'");
+            $stmt->execute();
+            $data = $stmt->fetch();
+            return $data;
+        }
 
     }
 
