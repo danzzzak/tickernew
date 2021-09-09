@@ -94,7 +94,8 @@
     $(document).on('click', '#del', function(e){
         // e.preventdefault();
         console.log('del');
-
+        
+        if (window.confirm("DELITE?")) {
         let del_id = $(this).attr('value');
         
         $.ajax({
@@ -109,6 +110,8 @@
             }
 
         })
+        } else {    return false    }
+
         
     });
   </script>
