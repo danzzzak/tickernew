@@ -36,6 +36,7 @@
 
         <div class="row">
             <div class="col-md-12 mt-1">
+                <div class="" id="show"></div>
                 <div id="fetch">  </div>
 
             </div>
@@ -87,6 +88,29 @@
           })
       }
       fetch();
+
+    //   delite
+
+    $(document).on('click', '#del', function(e){
+        // e.preventdefault();
+        console.log('del');
+
+        let del_id = $(this).attr('value');
+        
+        $.ajax({
+            url: "del.php",
+            type: "post",
+            data: {
+                del_id:del_id
+            },
+            success: function(data){
+                fetch();
+                $("#show").html(data);
+            }
+
+        })
+        
+    });
   </script>
 </body>
 </html>

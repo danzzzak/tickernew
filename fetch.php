@@ -21,13 +21,13 @@ $rows = $model -> fetch();
             if (!empty($rows)) {
                 foreach ($rows as $row) { ?>
                     <tr>
-                        <td><?php echo $i++ ?></td>
+                        <td><?php echo $row['id'] ?></td>
                         <td><?php echo $row['title'] ?></td>
                         <td><?php echo $row['disc'] ?></td>
                         <td>
-                            <a href="#" id="read" class="badge-info">read</a>
-                            <a href="#" id="del" class="badge-danger">del</a>
-                            <a href="#" id="edit" class="badge-warning">edit</a>
+                            <a href="#" id="read" class="badge-info" value=" <?php echo $row['id']; ?>">read</a>
+                            <a href="#" id="del" class="badge-danger" value=" <?php echo $row['id']; ?>">del</a>
+                            <a href="#" id="edit" class="badge-warning" value=" <?php echo $row['id']; ?>">edit</a>
 
                         </td>
                     </tr>
