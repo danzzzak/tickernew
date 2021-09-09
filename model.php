@@ -1,11 +1,11 @@
 <?php
 
-    // class Model{
-    //     private $server = "lockalhost";
-    //     private $username = "admin";
-    //     private $password = "admin";
-    //     private $db = "tasks";
-    //     private $conn;
+    class Model{
+        private $server = "lockalhost";
+        private $username = "admin";
+        private $password = "admin";
+        private $db = "tasks";
+        private $conn;
 
     //     public function __construct() {
     //         try {
@@ -14,9 +14,8 @@
     //             echo "net conecta k BD" . $e -> getMessage();
     //         }
     //     }
-    $connect = mysqli_connect("localhost", "admin", "admin", "tasks");
+    // $conn = mysqli_connect("localhost", "admin", "admin", "tasks");
 
-<<<<<<< HEAD
         public function __construct() {
             try {
                 $this->conn = new PDO("mysql:host=localhost;dbname=tasks", "admin", "admin");  
@@ -24,13 +23,12 @@
                 echo "net conecta k BD" . $e -> getMessage();
             }
         }
-=======
->>>>>>> 575018c4d2ba2ae901de5cd68fdde63f78e739cd
 
         public function insert(){
             if (isset($_POST["submit"])) {
                 if (isset($_POST["title"]) && isset($_POST["disc"])) {
                     if(!empty($_POST['title']) && !empty($_POST['disc'])){
+
                         $title = $_POST['title'];
                         $disc = $_POST['disc'];
 
@@ -45,7 +43,7 @@
                             </button>
                             </div>
                             ";
-                        }
+                        } else {echo "fail"; }
                     }
                     else {
                         echo "
@@ -73,8 +71,6 @@
 
             return $data;
         }
-        insert();
-
-    // }
+    }
 
 ?>

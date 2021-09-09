@@ -7,6 +7,8 @@ $model = new Model();
 $insert = $model->insert();
 
 
+// insert();
+
 
 
 ?>
