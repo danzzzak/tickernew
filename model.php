@@ -104,6 +104,34 @@
             return $data;
         }
 
+        public function update($data) {
+            $query = "UPDATE records SET title='$data[edit_title]', disc='$data[edit_disc]'  WHERE id='$data[edit_id]'";
+            
+            if ($sql = $this->conn->exec($query) ) {
+                echo "
+                    <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                    Ydachno v basy update
+                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'> 
+                    <span aria-hidden='true'>&times </span>
+                    </button>
+                    </div>
+                    ";
+
+            }else {
+                echo "
+                            <div class='alert alert-success alert-dismissible fade show' role='alert'>
+                            neydacha updata
+                            <button type='button' class='close' data-dismiss='alert' aria-label='Close'> 
+                            <span aria-hidden='true'>&times </span>
+                            </button>
+                            </div>
+                            ";
+            }
+
+
+        }
+
+
     }
 
 ?>
