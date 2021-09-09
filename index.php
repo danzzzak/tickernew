@@ -47,7 +47,7 @@
     </div>
 
     <!-- MODAL -->
-    <!-- Модальное окно -->
+    <!-- Модальное окно read -->
 <div class="modal">
   <div class="modal__content">
     <button class="modal__close-button"id="modal__close-button">123123</button>
@@ -55,6 +55,16 @@
     <div id="read_data"></div>
   </div>
 </div>
+
+    <!-- Модальное окно edit -->
+    <div class="modal modal_edit">
+  <div class="modal__content">
+    <button class="modal__close-button"id="modal__close-button">123123</button>
+    <!-- Контент модального окна -->
+    <div id="edit_data"></div>
+  </div>
+</div>
+
 
     <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -150,6 +160,24 @@
 
     });
 
+
+    // edit
+
+    $(document).on('click', '#edit', function(e){
+        let edit_id = $(this).attr("value");
+        $.ajax({
+            url: "edit.php",
+            type: "post",
+            data: {
+                edit_id:edit_id
+            },
+            success: function(data){
+                $("#edit_data").html(data);
+            }
+        })
+
+
+    })
 
   </script>
 </body>
