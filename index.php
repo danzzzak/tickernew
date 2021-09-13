@@ -28,6 +28,9 @@
                     <label for="">disc</label>
                     <input type="text" id='disc' class="form-control">
                     </div>
+                    <div>
+                        <?php require_once('table.php'); ?>
+                    </div>
                     <div class="form-group">
                         <button type = 'submit' id='submit' class="btn btn-outline-primary">submit</button>
                     </div>
@@ -79,6 +82,7 @@
         let title = $("#title").val();
         let disc = $("#disc").val();
         let submit = $("#submit").val();
+        let tablee = $("#tablee").val();
 
         $.ajax({
             url:"insert.php",
@@ -86,10 +90,12 @@
             data: {
                 title:title,
                 disc:disc,
+                tablee:tablee,
                 submit:submit
             },
             success: function(data) {
             fetch();
+            
             $("#result").html(data);
             console.log(data);
             }
@@ -186,6 +192,7 @@
         let edit_title = $('#edit_title').val();
         let edit_disc = $('#edit_disc').val();
         let edit_tekdata = $('#edit_tekdata').val();
+        let tablee = $('#tableemodal').val();
         let update = $('#update').val();
         let edit_id = $('#edit_id').val();
 
@@ -197,6 +204,7 @@
                 edit_title:edit_title,
                 edit_disc:edit_disc,
                 edit_tekdata: edit_tekdata,
+                tablee: tablee,
                 update:update
             },
             success: function(data) {

@@ -20,6 +20,9 @@ if(!empty($row)) {  ?>
                         <label for="">tekdata</label>
                         <input type="text" id='edit_tekdata' class="form-control" value ="<?php echo $row['tekdata'];  ?>" >
                     </div>
+                    <div>
+                        <?php require_once('tablemodal.php'); ?>
+                    </div>
                     <div class="form-group">
                         <button type = 'submit' id='update' class="btn btn-outline-primary">update</button>
                     </div>

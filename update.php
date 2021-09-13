@@ -8,6 +8,8 @@ if (isset($_POST["update"])) {
             $data['edit_id'] = $_POST['edit_id'];
             $data['edit_title'] = $_POST['edit_title'];
             $data['edit_disc'] = $_POST['edit_disc'];
+            $data['tablee'] = $_POST['tablee'];
+            $data['tekdata'] = $_POST['tekdata'];
 
             $model = new Model();
             $update = $model->update($data);

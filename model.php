@@ -30,8 +30,9 @@
                     if(!empty($_POST['title']) && !empty($_POST['disc'])){
 
                         $title = $_POST['title'];
-                        $disc = $_POST['disc'];;
-                        $query = "INSERT INTO records (title,disc,tekdata) VALUES ('$title', '$disc', NOW() )";
+                        $disc = $_POST['disc'];
+                        $tablee = $_POST['tablee'];
+                        $query = "INSERT INTO records (title,disc,tekdata,tablee) VALUES ('$title', '$disc', NOW(), '$tablee' )";
                         echo "$date";
                         
                         if ($sql = $this->conn->exec($query)) {
@@ -105,7 +106,8 @@
         }
 
         public function update($data) {
-            $query = "UPDATE records SET title='$data[edit_title]', disc='$data[edit_disc]'
+            $query = "UPDATE records SET title='$data[edit_title]', disc='$data[edit_disc]',
+             tablee='$data[tablee]'
               WHERE id='$data[edit_id]'";
             
             if ($sql = $this->conn->exec($query) ) {
@@ -130,6 +132,18 @@
             }
 
 
+        }
+
+        public function table() {
+            $data = null;
+
+            $stmt=$this->conn->prepare("SELECT * FROM kogo");
+
+            $stmt->execute();
+
+            $data = $stmt->fetchAll();
+
+            return $data;
         }
 
 

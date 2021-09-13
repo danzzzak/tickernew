@@ -4,7 +4,6 @@ include "model.php";
 $model = new Model();
 $rows = $model -> fetch();
 // var_dump($rows);
-
 ?>
 
 <table class="table">
@@ -14,6 +13,7 @@ $rows = $model -> fetch();
             <th>title</th>
             <th>disc</th>
             <th>data</th>
+            <th>tablee</th>
         </tr>
     </thead>
     <tbody>
@@ -25,6 +25,7 @@ $rows = $model -> fetch();
                         <td><?php echo $row['title'] ?></td>
                         <td><?php echo $row['disc'] ?></td>
                         <td><?php echo $row['tekdata'] ?></td>
+                        <td><?php echo $row['tablee'] ?></td>
                         <td>  
                             <a href="#" id="read" class="badge-info" value=" <?php echo $row['id']; ?>" data-toggle="modal" data-bs-target="#exampleModal"> read</a>                      
                             <a href="#" id="del" class="badge-danger" value=" <?php echo $row['id']; ?>">del</a>
