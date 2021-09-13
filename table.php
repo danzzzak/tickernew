@@ -6,7 +6,7 @@ $rows = $model -> table();
 // var_dump($rows);
 ?>
 
-<select name="tablee" id = "tablee">
+<select name="tablee" id="tablee">
     <?php
         foreach ($rows as $row) {
             $rowid =  $row['kto'];
