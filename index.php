@@ -185,6 +185,7 @@
     $(document).on('click', '#update', function(e){
         let edit_title = $('#edit_title').val();
         let edit_disc = $('#edit_disc').val();
+        let edit_tekdata = $('#edit_tekdata').val();
         let update = $('#update').val();
         let edit_id = $('#edit_id').val();
 
@@ -195,6 +196,7 @@
                 edit_id:edit_id,
                 edit_title:edit_title,
                 edit_disc:edit_disc,
+                edit_tekdata: edit_tekdata,
                 update:update
             },
             success: function(data) {

@@ -30,9 +30,9 @@
                     if(!empty($_POST['title']) && !empty($_POST['disc'])){
 
                         $title = $_POST['title'];
-                        $disc = $_POST['disc'];
-
-                        $query = "INSERT INTO records (title,disc) VALUES ('$title', '$disc')";
+                        $disc = $_POST['disc'];;
+                        $query = "INSERT INTO records (title,disc,tekdata) VALUES ('$title', '$disc', NOW() )";
+                        echo "$date";
                         
                         if ($sql = $this->conn->exec($query)) {
                             echo "
@@ -42,7 +42,7 @@
                             <span aria-hidden='true'>&times </span>
                             </button>
                             </div>
-                            ";
+                            ";        
                         } else {echo "fail"; }
                     }
                     else {
@@ -63,7 +63,7 @@
         public function fetch() {
             $data = null;
 
-            $stmt=$this->conn->prepare("SELECT * FROM records");
+            $stmt=$this->conn->prepare("SELECT * FROM records ORDER BY id DESC");
 
             $stmt->execute();
 
@@ -105,7 +105,8 @@
         }
 
         public function update($data) {
-            $query = "UPDATE records SET title='$data[edit_title]', disc='$data[edit_disc]'  WHERE id='$data[edit_id]'";
+            $query = "UPDATE records SET title='$data[edit_title]', disc='$data[edit_disc]'
+              WHERE id='$data[edit_id]'";
             
             if ($sql = $this->conn->exec($query) ) {
                 echo "
