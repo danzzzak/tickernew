@@ -14,6 +14,7 @@ $rows = $model -> fetch();
             <th>disc</th>
             <th>data</th>
             <th>tablee</th>
+            <th>Opis</th>
         </tr>
     </thead>
     <tbody>
@@ -26,6 +27,7 @@ $rows = $model -> fetch();
             <td><?php echo $row['disc'] ?></td>
             <td><?php echo $row['tekdata'] ?></td>
             <td><?php echo $row['tablee'] ?></td>
+            <td><?php echo $row['opis'] ?></td>
             <td>
                 <a href="#" id="read" class="badge-info" value=" <?php echo $row['id']; ?>" data-toggle="modal"
                     data-bs-target="#exampleModal"> read</a>

@@ -32,7 +32,8 @@
                         $title = $_POST['title'];
                         $disc = $_POST['disc'];
                         $tablee = $_POST['tablee'];
-                        $query = "INSERT INTO records (title,disc,tekdata,tablee) VALUES ('$title', '$disc', NOW(), '$tablee' )";
+                        $opis = $_POST['opis'];
+                        $query = "INSERT INTO records (title,disc,tekdata,tablee,opis) VALUES ('$title', '$disc', NOW(), '$tablee', '$opis' )";
                         echo "$date";
                         
                         if ($sql = $this->conn->exec($query)) {
@@ -91,7 +92,7 @@
 
         public function read($read_id) {
             $data=null;
-            $stmt = $this->conn->prepare("SELECT * FROM records WHERE id = '$read_id'");
+            $stmt = $this->conn->prepare("SELECT * FROM records WHERE id = '$read_id' ");
             $stmt->execute();
             $data = $stmt->fetch();
             return $data;
@@ -99,7 +100,7 @@
 
         public function edit($edit_id) {
             $data = null;
-            $stmt = $this->conn->prepare("SELECT * FROM records WHERE id = $edit_id");
+            $stmt = $this->conn->prepare("SELECT * FROM records WHERE id = '$edit_id' ");
             $stmt->execute();
             $data=$stmt->fetch();
             return $data;
@@ -107,7 +108,7 @@
 
         public function update($data) {
             $query = "UPDATE records SET title='$data[edit_title]', disc='$data[edit_disc]',
-             tablee='$data[tablee]'
+             tablee='$data[tablee]', opis='$data[opis]'
               WHERE id='$data[edit_id]'";
             
             if ($sql = $this->conn->exec($query) ) {

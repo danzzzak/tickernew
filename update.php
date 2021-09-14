@@ -10,6 +10,7 @@ if (isset($_POST["update"])) {
             $data['edit_disc'] = $_POST['edit_disc'];
             $data['tablee'] = $_POST['tablee'];
             $data['tekdata'] = $_POST['tekdata'];
+            $data['opis'] = $_POST['opis'];
 
             $model = new Model();
             $update = $model->update($data);

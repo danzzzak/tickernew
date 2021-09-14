@@ -23,6 +23,10 @@ if(!empty($row)) {  ?>
     <div>
         <?php require_once('tablemodal.php'); ?>
     </div>
+    <div>
+        <label for="">opis</label>
+        <input type="text" id='opis' class="form-control" value="<?php echo $row['opis'];  ?>">
+    </div>
     <div class="form-group">
         <button type='submit' id='update' class="btn btn-outline-primary">update</button>
     </div>

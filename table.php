@@ -8,6 +8,7 @@ $rows = $model -> table();
 
 <select name="tablee" id="tablee">
     <?php
+        echo "<option value=''>Выбор</option>";
         foreach ($rows as $row) {
             $rowid =  $row['kto'];
             echo "<option name='$rowid'> $rowid </option>";
